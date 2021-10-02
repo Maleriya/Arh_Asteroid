@@ -14,7 +14,7 @@ namespace Asteroids
         private Camera _camera;
         private Ship _ship;
         private List<IWeapon> _weapons;
-        private PlayerHealth _playerHealth;
+        private UnitHealth _playerHealth;
         private InputUser _inputUser;
 
         void Start()
@@ -34,7 +34,7 @@ namespace Asteroids
                 _weapons.Add(weapon);
             }
 
-            _playerHealth = new PlayerHealth(_startHp, gameObject);
+            _playerHealth = new UnitHealth(_startHp, gameObject);
             _inputUser = new InputUser(_camera, transform);
         }
 
@@ -62,7 +62,8 @@ namespace Asteroids
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            _playerHealth.ColisionHappend(other);
+            _playerHealth.ChangeCurrentHP(other);
+            _startHp = _playerHealth.hpCurrent;
         }
 
     }
