@@ -1,4 +1,6 @@
-﻿namespace Asteroids
+﻿using Asteroids.Pool;
+
+namespace Asteroids
 {
     internal interface IWeapon
     {

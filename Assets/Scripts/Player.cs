@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Asteroids.Pool;
 
 namespace Asteroids
 {
@@ -11,10 +12,11 @@ namespace Asteroids
         [SerializeField] private List<Rigidbody2D> _bullet;
         [SerializeField] private List<Transform> _barrel;
         [SerializeField] private float _force;
+
         private Camera _camera;
         private Ship _ship;
         private List<IWeapon> _weapons;
-        private PlayerHealth _playerHealth;
+        private UnitHealth _playerHealth;
         private InputUser _inputUser;
 
         void Start()
@@ -27,15 +29,18 @@ namespace Asteroids
             var rotation = new RotationShip(transform);
             _ship = new Ship(moveTransform, rotation);
 
+            BulletPool bulletPool = new BulletPool(10);
             _weapons = new List<IWeapon>();
             for (int i = 0; i < _barrel.Count; i++)
             {
-                Weapon weapon = new Weapon(_bullet[i], _barrel[i], _force);
+                Weapon weapon = new Weapon(_bullet[i], _barrel[i], _force, bulletPool);
                 _weapons.Add(weapon);
             }
 
-            _playerHealth = new PlayerHealth(_startHp, gameObject);
+            _playerHealth = new UnitHealth(_startHp, gameObject);
             _inputUser = new InputUser(_camera, transform);
+
+            
         }
 
         void Update()
@@ -62,7 +67,8 @@ namespace Asteroids
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            _playerHealth.ColisionHappend(other);
+            _playerHealth.ChangeCurrentHP(other);
+            _startHp = _playerHealth.hpCurrent;
         }
 
     }
