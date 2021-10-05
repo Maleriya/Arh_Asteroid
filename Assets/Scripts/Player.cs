@@ -29,11 +29,10 @@ namespace Asteroids
             var rotation = new RotationShip(transform);
             _ship = new Ship(moveTransform, rotation);
 
-            BulletPool bulletPool = new BulletPool(10);
             _weapons = new List<IWeapon>();
             for (int i = 0; i < _barrel.Count; i++)
             {
-                Weapon weapon = new Weapon(_bullet[i], _barrel[i], _force, bulletPool);
+                Weapon weapon = new Weapon(_bullet[i], _barrel[i], _force);
                 _weapons.Add(weapon);
             }
 
