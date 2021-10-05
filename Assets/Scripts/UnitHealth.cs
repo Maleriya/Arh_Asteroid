@@ -4,9 +4,21 @@ namespace Asteroids
 {
     public sealed class UnitHealth
     {
-        public float hpCurrent;
+        private float _hpCurrent;
+        public float hpCurrent
+        {
+            get => _hpCurrent;
+            set
+            {
+                _hpCurrent = value;
+                if (_hpCurrent <= 0.0f)
+                    ThisDeath();
+            }
+        }
         public float hpMax;
         private GameObject _gameObject;
+
+        public event System.Action ThisDeath = delegate { };
 
         public UnitHealth(float startHp, GameObject gameObject)
         {

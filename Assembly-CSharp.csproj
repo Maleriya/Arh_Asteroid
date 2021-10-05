@@ -58,6 +58,7 @@
     <Compile Include="Assets\Scripts\IRotation.cs" />
     <Compile Include="Assets\Scripts\MoveForce.cs" />
     <Compile Include="Assets\Scripts\RotationShip.cs" />
+    <Compile Include="Assets\Scripts\Start\GameManager.cs" />
     <Compile Include="Assets\Scripts\Pool\NameManager.cs" />
     <Compile Include="Assets\Scripts\MoveTransform.cs" />
     <Compile Include="Assets\Scripts\DifObject\IEnemyFactory.cs" />
@@ -72,7 +73,13 @@
     <Compile Include="Assets\Scripts\AccelerationMove.cs" />
     <Compile Include="Assets\Scripts\DifObject\AsteroidFactory.cs" />
     <Compile Include="Assets\Scripts\InputUser.cs" />
-    <Compile Include="Assets\Scripts\Start\GameManager.cs" />
+    <Compile Include="Assets\Scripts\DifObject\Kometa.cs" />
+    <Compile Include="Assets\Scripts\DifObject\KometaFactory.cs" />
+    <Compile Include="Assets\Scripts\Pool\BulletPool.cs" />
+    <Compile Include="Assets\Scripts\DifObject\Bullet.cs" />
+    <Compile Include="Assets\Scripts\DifObject\IBulletFactory.cs" />
+    <Compile Include="Assets\Scripts\DifObject\SimpleBulletFactory.cs" />
+    <Compile Include="Assets\Scripts\DifObject\SimpleBullet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

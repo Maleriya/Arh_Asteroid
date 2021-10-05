@@ -30,6 +30,9 @@ namespace Asteroids.Pool
                 case "Asteroid":
                     result = GetAsteroid(GetListEnemies(type));
                     break;
+                case "Kometa":
+                    result = GetKometa(GetListEnemies(type));
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type,
                         "Не предусмотрен в программе");
@@ -50,12 +53,31 @@ namespace Asteroids.Pool
             if (enemy == null)
             {
                 IEnemyFactory asteroidFactory = new AsteroidFactory();
-                Enemy.Factory = asteroidFactory;
-                var asteroid = Enemy.Factory.Create(new UnitHealth(20));
+                var asteroid = asteroidFactory.Create(new UnitHealth(20));
+
+                for (int i = 0; i < _capacityPool; i++)
+                {         
+                    var instantiate = UnityEngine.Object.Instantiate(asteroid);
+                    ReturnToPool(instantiate.transform);
+                    enemies.Add(instantiate);
+                }
+                GetAsteroid(enemies);
+            }
+            enemy = enemies.FirstOrDefault(a => !a.gameObject.activeSelf);
+            return enemy;
+        }
+
+        private Enemy GetKometa(HashSet<Enemy> enemies)
+        {
+            var enemy = enemies.FirstOrDefault(a => !a.gameObject.activeSelf);
+            if (enemy == null)
+            {
+                IEnemyFactory kometaFactory = new KometaFactory();
+                var kometa = kometaFactory.Create(new UnitHealth(30));
 
                 for (int i = 0; i < _capacityPool; i++)
                 {
-                    var instantiate = UnityEngine.Object.Instantiate(asteroid);
+                    var instantiate = UnityEngine.Object.Instantiate(kometa);
                     ReturnToPool(instantiate.transform);
                     enemies.Add(instantiate);
                 }

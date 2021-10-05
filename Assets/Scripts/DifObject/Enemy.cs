@@ -6,11 +6,11 @@ namespace Asteroids
 {
     public abstract class Enemy : MonoBehaviour
     {
-        public static IEnemyFactory Factory;
+        //public static IEnemyFactory Factory;
         private Transform _rotPool;
         private UnitHealth _unitHealth;
         private MoveTransform _move;
-
+        
         public MoveTransform Move
         {
             get
@@ -30,6 +30,10 @@ namespace Asteroids
         {
             get
             {
+                if (_unitHealth == null)
+                {
+                    _unitHealth = new UnitHealth(20.0f, gameObject);
+                }
                 if (_unitHealth.hpCurrent <= 0.0f)
                 {
                     ReturnToPol();
@@ -56,6 +60,8 @@ namespace Asteroids
 
         private void ReturnToPol()
         {
+            Debug.Log($"ReturnToPol {gameObject.name} - {gameObject.activeSelf}");
+
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             gameObject.SetActive(false);
@@ -69,15 +75,22 @@ namespace Asteroids
         public void SetHealth(UnitHealth hp)
         {
             Health = hp;
+            Health.ThisDeath += ReturnToPol;
         }
 
-        public void ActiveEnemy(Quaternion rotation)
+        public void ActiveEnemy(Quaternion rotation, Vector3 position)
         {
-            int generatePoint = UnityEngine.Random.Range(0, GameManager.generatePoint.Length - 1);
-            transform.localPosition = GameManager.generatePoint[generatePoint].position;
+            Debug.Log($"ActiveEnemy{gameObject.name} - {gameObject.activeSelf}");
+
+            transform.localPosition = position;
             transform.localRotation = rotation;
             gameObject.SetActive(true);
             transform.SetParent(null);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            ReturnToPol();
         }
     }
 }

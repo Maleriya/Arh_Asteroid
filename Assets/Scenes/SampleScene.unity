@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211686126}
   m_Layer: 0
-  m_Name: GenPoint5
+  m_Name: AsteroidPoint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,6 +153,41 @@ Transform:
   m_Father: {fileID: 455113369}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &444254262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444254263}
+  m_Layer: 0
+  m_Name: KometaPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444254263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444254262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2147128242}
+  - {fileID: 1234815843}
+  - {fileID: 1066493671}
+  - {fileID: 1594312897}
+  - {fileID: 2106620648}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455113368
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 455113369}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AsteroidPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +221,7 @@ Transform:
   - {fileID: 1990116155}
   - {fileID: 211686126}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -281,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 759935843}
   m_Layer: 0
-  m_Name: GenPoint2
+  m_Name: AsteroidPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,6 +336,36 @@ Transform:
   m_Father: {fileID: 455113369}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1066493670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1066493671}
+  m_Layer: 0
+  m_Name: GenPoint3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1066493671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066493670}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.9, y: 0.24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444254263}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126432399
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126432400}
   m_Layer: 0
-  m_Name: GenPoint3
+  m_Name: AsteroidPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,6 +395,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 455113369}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1234815842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1234815843}
+  m_Layer: 0
+  m_Name: GenPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1234815843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234815842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.9, y: 1.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444254263}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1579943465
 GameObject:
@@ -360,12 +455,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639c9ded32563b64982c5edce3d0cd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generatePoint:
+  asteroidPoint:
   - {fileID: 2051729651}
   - {fileID: 759935843}
   - {fileID: 1126432400}
   - {fileID: 1990116155}
   - {fileID: 211686126}
+  kometaPoint:
+  - {fileID: 2147128242}
+  - {fileID: 1234815843}
+  - {fileID: 1066493671}
+  - {fileID: 1594312897}
+  - {fileID: 2106620648}
 --- !u!4 &1579943467
 Transform:
   m_ObjectHideFlags: 0
@@ -374,11 +475,41 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579943465}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06749278, y: 0.23061846, z: -929.8025}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1594312896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1594312897}
+  m_Layer: 0
+  m_Name: GenPoint4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1594312897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594312896}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.9, y: -1.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444254263}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990116154
 GameObject:
@@ -390,7 +521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1990116155}
   m_Layer: 0
-  m_Name: GenPoint4
+  m_Name: AsteroidPoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051729651}
   m_Layer: 0
-  m_Name: GenPoint1
+  m_Name: AsteroidPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -440,63 +571,66 @@ Transform:
   m_Father: {fileID: 455113369}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2268509280752878617
-PrefabInstance:
+--- !u!1 &2106620647
+GameObject:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8826407681992131662, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_Name
-      value: Asteroid
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.002271
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.064095266
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.73172605
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078236905480291434, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ac5c8bcf697e0414fb32d53604dad443, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2106620648}
+  m_Layer: 0
+  m_Name: GenPoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2106620648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106620647}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.9, y: -3.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444254263}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2147128241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2147128242}
+  m_Layer: 0
+  m_Name: GenPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2147128242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147128241}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.9, y: 3.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 444254263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4700861983915820849
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -507,6 +641,14 @@ PrefabInstance:
     - target: {fileID: 4700861983859415627, guid: 68290a5773df695458836f0d090e19ab, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700861983859415628, guid: 68290a5773df695458836f0d090e19ab, type: 3}
+      propertyPath: _force
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4700861983859415628, guid: 68290a5773df695458836f0d090e19ab, type: 3}
+      propertyPath: _active
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4700861983859415629, guid: 68290a5773df695458836f0d090e19ab, type: 3}
       propertyPath: m_RootOrder

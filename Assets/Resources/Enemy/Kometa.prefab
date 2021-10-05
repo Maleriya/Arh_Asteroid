@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9078236905480291434}
   - component: {fileID: 8134698768454478348}
-  - component: {fileID: 10756598125744284}
   - component: {fileID: 8278821617193260038}
   - component: {fileID: 6821775486476194085}
+  - component: {fileID: -6174945206349229823}
   m_Layer: 0
   m_Name: Kometa
   m_TagString: Untagged
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8826407681992131662}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.002271, y: 0.064095266, z: -0.73172605}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &8134698768454478348
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,18 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &10756598125744284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8826407681992131662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ae13292a3186ce4392a7531b06ac427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &8278821617193260038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,3 +132,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-6174945206349229823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826407681992131662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2329976c2c3a516468c09509bbfe5a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
