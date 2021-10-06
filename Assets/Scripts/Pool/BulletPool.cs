@@ -27,8 +27,11 @@ namespace Asteroids.Pool
             Bullet result;
             switch (type)
             {
-                case "Simple bullet":
+                case "Lazer":
                     result = GetSimpleBullet(GetListBullets(type));
+                    break;
+                case "Blast":
+                    result = GetBlastBullet(GetListBullets(type));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type,
@@ -49,7 +52,7 @@ namespace Asteroids.Pool
             var bullet = bullets.FirstOrDefault(a => !a.gameObject.activeSelf);
             if (bullet == null)
             {
-                IBulletFactory bulletFactory = new SimpleBulletFactory();
+                IBulletFactory bulletFactory = new LazerBulletFactory();
                 var simpleBullet = bulletFactory.Create(10);
 
                 for (int i = 0; i < _capacityPool; i++)
@@ -59,6 +62,26 @@ namespace Asteroids.Pool
                     bullets.Add(instantiate);
                 }
                 GetSimpleBullet(bullets);
+            }
+            bullet = bullets.FirstOrDefault(a => !a.gameObject.activeSelf);
+            return bullet;
+        }
+
+        private Bullet GetBlastBullet(HashSet<Bullet> bullets)
+        {
+            var bullet = bullets.FirstOrDefault(a => !a.gameObject.activeSelf);
+            if (bullet == null)
+            {
+                IBulletFactory bulletFactory = new BlastBulletFactory();
+                var blastBullet = bulletFactory.Create(10);
+
+                for (int i = 0; i < _capacityPool; i++)
+                {
+                    var instantiate = UnityEngine.Object.Instantiate(blastBullet);
+                    ReturnToPool(instantiate.transform);
+                    bullets.Add(instantiate);
+                }
+                GetBlastBullet(bullets);
             }
             bullet = bullets.FirstOrDefault(a => !a.gameObject.activeSelf);
             return bullet;

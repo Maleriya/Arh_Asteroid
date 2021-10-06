@@ -4,6 +4,7 @@ using Asteroids.Pool;
 
 namespace Asteroids
 {
+    [Serializable]
     public abstract class Enemy : MonoBehaviour
     {
         //public static IEnemyFactory Factory;

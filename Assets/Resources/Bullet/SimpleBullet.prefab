@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6506272979182018117}
   - component: {fileID: 1433529499022869554}
   - component: {fileID: 5964133382767132449}
-  - component: {fileID: -6975131374300907018}
   m_Layer: 0
   m_Name: SimpleBullet
   m_TagString: Untagged
@@ -122,15 +121,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &-6975131374300907018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4464807500403747996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e32a6ae21dc274d824b22dfb87ac96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
