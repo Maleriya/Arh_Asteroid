@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Asteroids.Pool;
+using System.Collections.Generic;
+using System;
 
 namespace Asteroids
 {
@@ -9,6 +11,27 @@ namespace Asteroids
         [SerializeField] private Transform[] kometaPoint;
         private float time;
         private float delta;
+
+        [Header ("MyDictionary")]
+        [SerializeField] private List<Enemy> keys;
+        [SerializeField] private List<int> values;
+
+        private Dictionary<Enemy, int> dictionaryEnemy;
+
+        public void AddToDictionary(Enemy type, int count)
+        {
+            if (!dictionaryEnemy.ContainsKey(type))
+            {
+                dictionaryEnemy.Add(type, count);
+                keys.Add(type);
+                values.Add(count);
+            }
+            else
+            {
+                dictionaryEnemy[type] += count;
+                values[keys.FindIndex(a => a == type)] += count;
+            }
+        }
 
         private void Start()
         {
@@ -21,6 +44,11 @@ namespace Asteroids
             ServiceLocator.SetService<EnemyPool>(new EnemyPool(3));
             ServiceLocator.SetService<BulletPool>(new BulletPool(10));
             time = delta;
+
+            dictionaryEnemy = new Dictionary<Enemy, int>();
+
+            keys = new List<Enemy>();
+            values = new List<int>();
         }
 
         private void Update()
@@ -29,10 +57,14 @@ namespace Asteroids
             if (time <= 0)
             {
                 int generatePoint = UnityEngine.Random.Range(0, GameManager.asteroidPoint.Length - 1);
-                ServiceLocator.Resolve<EnemyPool>().GetEnemy("Asteroid").ActiveEnemy(Quaternion.identity, GameManager.asteroidPoint[generatePoint].position);
+                Enemy asteroid = ServiceLocator.Resolve<EnemyPool>().GetEnemy("Asteroid"); 
+                asteroid.ActiveEnemy(Quaternion.identity, GameManager.asteroidPoint[generatePoint].position);
+                AddToDictionary(asteroid, 1);
 
                 generatePoint = UnityEngine.Random.Range(0, GameManager.kometaPoint.Length - 1);
-                ServiceLocator.Resolve<EnemyPool>().GetEnemy("Kometa").ActiveEnemy(Quaternion.identity, GameManager.kometaPoint[generatePoint].position);
+                Enemy kometa = ServiceLocator.Resolve<EnemyPool>().GetEnemy("Kometa");
+                kometa.ActiveEnemy(Quaternion.identity, GameManager.kometaPoint[generatePoint].position);
+                AddToDictionary(kometa, 1);
 
                 time = delta;
             }

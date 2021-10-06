@@ -8,7 +8,7 @@ namespace Asteroids
         public Enemy Create(UnitHealth hp)
         {
             Asteroid enemy = Resources.Load<Asteroid>("Enemy/Asteroid");
-            enemy.name = "Вот и все" + GameManager.numAsteroid;
+            enemy.name = "Asteroid" + GameManager.numAsteroid;
             GameManager.IncremNumAsteroid();
             enemy.SetHealth(hp);
             return enemy;

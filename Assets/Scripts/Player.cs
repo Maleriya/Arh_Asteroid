@@ -9,7 +9,6 @@ namespace Asteroids
         [SerializeField] private float _startSpeed;
         [SerializeField] private float _acceleration;
         [SerializeField] private float _startHp;
-        [SerializeField] private List<Rigidbody2D> _bullet;
         [SerializeField] private List<Transform> _barrel;
         [SerializeField] private float _force;
 
@@ -30,16 +29,17 @@ namespace Asteroids
             _ship = new Ship(moveTransform, rotation);
 
             _weapons = new List<IWeapon>();
-            for (int i = 0; i < _barrel.Count; i++)
-            {
-                Weapon weapon = new Weapon(_bullet[i], _barrel[i], _force);
-                _weapons.Add(weapon);
-            }
+
+            SimpleWeapon weapon = new SimpleWeapon(_barrel[0], _force);
+            _weapons.Add(weapon);
+
+            DifWeapon difWeapon = new DifWeapon(_barrel[1], _force);
+            _weapons.Add(difWeapon);
 
             _playerHealth = new UnitHealth(_startHp, gameObject);
             _inputUser = new InputUser(_camera, transform);
 
-            
+
         }
 
         void Update()
