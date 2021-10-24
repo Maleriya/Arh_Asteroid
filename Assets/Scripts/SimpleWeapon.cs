@@ -8,6 +8,7 @@ namespace Asteroids
         private Rigidbody2D _bullet;
         private Transform _barrel;
         private readonly float _force;
+        public int Attack;
 
         public SimpleWeapon(Transform barrel, float force)
         {

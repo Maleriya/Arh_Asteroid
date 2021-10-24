@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Asteroids.Pool;
+using Asteroids.Modifier;
 
 namespace Asteroids
 {
@@ -32,6 +33,11 @@ namespace Asteroids
 
             SimpleWeapon weapon = new SimpleWeapon(_barrel[0], _force);
             _weapons.Add(weapon);
+
+            var rootModifWeapon = new SimpleWeaponModifier(weapon);
+            rootModifWeapon.Add(new AddAttackModifier(weapon, 3));
+            rootModifWeapon.Add(new AddAttackModifier(weapon, 5));
+            rootModifWeapon.Handle();
 
             DifWeapon difWeapon = new DifWeapon(_barrel[1], _force);
             _weapons.Add(difWeapon);
