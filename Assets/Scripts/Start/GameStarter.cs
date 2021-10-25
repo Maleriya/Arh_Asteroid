@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Asteroids.Pool;
 using System.Collections.Generic;
-using System;
+using Asteroids.Observer;
 
 namespace Asteroids
 {
@@ -43,6 +43,8 @@ namespace Asteroids
             delta = 1.0f;
             ServiceLocator.SetService<EnemyPool>(new EnemyPool(3));
             ServiceLocator.SetService<BulletPool>(new BulletPool(10));
+            ServiceLocator.SetService<ListenerHitShowDamage>(new ListenerHitShowDamage());
+            ServiceLocator.SetService<ConsoleLogVisitor>(new ConsoleLogVisitor());
             time = delta;
 
             dictionaryEnemy = new Dictionary<Enemy, int>();
@@ -59,11 +61,14 @@ namespace Asteroids
                 int generatePoint = UnityEngine.Random.Range(0, GameManager.asteroidPoint.Length - 1);
                 Enemy asteroid = ServiceLocator.Resolve<EnemyPool>().GetEnemy("Asteroid"); 
                 asteroid.ActiveEnemy(Quaternion.identity, GameManager.asteroidPoint[generatePoint].position);
+                (asteroid as Asteroid).Activate(ServiceLocator.Resolve<ConsoleLogVisitor>());
                 AddToDictionary(asteroid, 1);
+
 
                 generatePoint = UnityEngine.Random.Range(0, GameManager.kometaPoint.Length - 1);
                 Enemy kometa = ServiceLocator.Resolve<EnemyPool>().GetEnemy("Kometa");
                 kometa.ActiveEnemy(Quaternion.identity, GameManager.kometaPoint[generatePoint].position);
+                (kometa as Kometa).Activate(ServiceLocator.Resolve<ConsoleLogVisitor>());
                 AddToDictionary(kometa, 1);
 
                 time = delta;

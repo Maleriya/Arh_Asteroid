@@ -8,9 +8,13 @@ namespace Asteroids.Command
         [SerializeField] private Text _text;
 
         public override void Execute()
-        {
-            _text.text = nameof(PanelOne);
+        {         
             gameObject.SetActive(true);
+        }
+
+        public void ChangeText(string str)
+        {
+            _text.text = str;
         }
 
         public override void Cancel()

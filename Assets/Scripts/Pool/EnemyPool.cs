@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Asteroids.Observer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace Asteroids.Pool
             if(!_rootPool)
             {
                 _rootPool = new GameObject(NameManager.POOL_ENEMY).transform;
-            }  
+            }
         }
 
         public Enemy GetEnemy(string type)
@@ -54,10 +55,12 @@ namespace Asteroids.Pool
             {
                 IEnemyFactory asteroidFactory = new AsteroidFactory();
                 var asteroid = asteroidFactory.Create(new UnitHealth(20));
+                int countAsteroids = enemies.Count;
 
                 for (int i = 0; i < _capacityPool; i++)
                 {         
                     var instantiate = UnityEngine.Object.Instantiate(asteroid);
+                    instantiate.name = $"{nameof(Asteroid)} {countAsteroids + i + 1}";
                     ReturnToPool(instantiate.transform);
                     enemies.Add(instantiate);
                 }
@@ -74,10 +77,12 @@ namespace Asteroids.Pool
             {
                 IEnemyFactory kometaFactory = new KometaFactory();
                 var kometa = kometaFactory.Create(new UnitHealth(30));
+                int countKometa = enemies.Count;
 
                 for (int i = 0; i < _capacityPool; i++)
                 {
                     var instantiate = UnityEngine.Object.Instantiate(kometa);
+                    instantiate.name = $"{nameof(Kometa)} {countKometa + i + 1}";
                     ReturnToPool(instantiate.transform);
                     enemies.Add(instantiate);
                 }

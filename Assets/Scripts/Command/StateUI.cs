@@ -4,6 +4,6 @@
     {
         None = 0,
         PanelOne = 1,
-        PanelTwo = 2,
+        PanelDebuff = 2,
     }
 }
