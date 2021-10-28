@@ -1,19 +1,37 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Asteroids.Observer;
 
 namespace Asteroids.Command.Second
 {
     internal sealed class UserInterface : MonoBehaviour
     {
         [SerializeField] private PanelOne _panelOne;
-        [SerializeField] private PanelTwo _panelTwo;
+        [SerializeField] private PanelTwo _panelDebuff;
         private readonly Stack<StateUI> _stateUi = new Stack<StateUI>();
         private BaseUI _currentWindow;
 
         private void Start()
         {
             _panelOne.Cancel();
-            _panelTwo.Cancel();
+            _panelDebuff.Cancel();
+            ServiceLocator.Resolve<ListenerHitShowDamage>().OnCountEnemyChange += ChangeCountEnemy;
+            ServiceLocator.SetService<UserInterface>(this);
+        }
+
+        private void ChangeCountEnemy(int count)
+        {
+            _panelOne.ChangeText($"Уничтожено врагов {count}");
+        }
+
+        public void PanelDebuffActive()
+        {
+            Execute(StateUI.PanelDebuff);
+        }
+
+        public void PanelDebuffCancel()
+        {
+            CancelAll();
         }
 
         private void Execute(StateUI stateUI, bool isSave = true)
@@ -29,8 +47,8 @@ namespace Asteroids.Command.Second
                     _currentWindow = _panelOne;
                     break;
 
-                case StateUI.PanelTwo:
-                    _currentWindow = _panelTwo;
+                case StateUI.PanelDebuff:
+                    _currentWindow = _panelDebuff;
                     break;
 
                 default:
@@ -50,20 +68,21 @@ namespace Asteroids.Command.Second
             {
                 Execute(StateUI.PanelOne);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                Execute(StateUI.PanelTwo);
-            }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (_stateUi.Count > 0)
-                {
-                    Execute(_stateUi.Pop(), false);
-                }
-
-                _panelOne.Cancel();
-                _panelTwo.Cancel();
+                CancelAll();
             }
+        }
+
+        private void CancelAll()
+        {
+            if (_stateUi.Count > 0)
+            {
+                Execute(_stateUi.Pop(), false);
+            }
+
+            _panelOne.Cancel();
+            _panelDebuff.Cancel();
         }
     }
 }

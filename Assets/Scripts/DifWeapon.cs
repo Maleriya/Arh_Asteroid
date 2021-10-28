@@ -15,7 +15,12 @@ namespace Asteroids
             _force = force;
         }
 
-        public void CreateBullet()
+        public void Fire()
+        {
+            CreateBullet();
+        }
+
+        private void CreateBullet()
         {
             Bullet bullet = ServiceLocator.Resolve<BulletPool>().GetBullet("Blast");
             bullet.ActiveBullet(_barrel.rotation, _barrel.position);

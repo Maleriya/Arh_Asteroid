@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Asteroids.Pool;
 using Asteroids.Modifier;
+using System;
 
 namespace Asteroids
 {
@@ -17,14 +17,13 @@ namespace Asteroids
         private Ship _ship;
         private List<IWeapon> _weapons;
         private UnitHealth _playerHealth;
-        private InputUser _inputUser;
+        private InputUser _inputUser;      
 
         void Start()
         {
             _camera = Camera.main;
 
             var moveTransform = new AccelerationMove(transform, _startSpeed, _acceleration);
-            //var moveTransform = new MoveForce(transform, _startSpeed); 
 
             var rotation = new RotationShip(transform);
             _ship = new Ship(moveTransform, rotation);
@@ -44,8 +43,6 @@ namespace Asteroids
 
             _playerHealth = new UnitHealth(_startHp, gameObject);
             _inputUser = new InputUser(_camera, transform);
-
-
         }
 
         void Update()
@@ -65,15 +62,26 @@ namespace Asteroids
             {
                 foreach (var weapon in _weapons)
                 {
-                    weapon.CreateBullet();
+                    weapon.Fire();
                 }     
             }
         }
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            if(other.gameObject.GetComponent<Kometa>() != null)
+            {
+                _ship.OnDebuff();
+                Invoke("ShipDisableDebuff", 5.0f);
+            }
+
             _playerHealth.ChangeCurrentHP(other);
             _startHp = _playerHealth.hpCurrent;
+        }
+
+        private void ShipDisableDebuff()
+        {
+            _ship.DisableDebuff();
         }
 
     }
